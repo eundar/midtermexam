@@ -1,0 +1,218 @@
+.page {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 48px 20px;
+  background: linear-gradient(135deg, #071731, #102347);
+  color: #ffffff;
+}
+
+.panel {
+  width: min(100%, 680px);
+  padding: 40px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgb(0 0 0 / 28%);
+  color: #071731;
+}
+
+.panel :global([role="progressbar"]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel :global([role="progressbar"] > span) {
+  display: inline-flex;
+  flex: 0 0 2.5rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.panel :global([role="progressbar"] > span[data-state="current"]) {
+  border-color: #4b5563;
+  background: #6b7280;
+  color: #ffffff;
+}
+
+.panel :global([role="progressbar"] > span[data-state="correct"]) {
+  border-color: #15803d;
+  background-color: #15803d;
+  color: #ffffff;
+}
+
+.panel :global([role="progressbar"] > span[data-state="incorrect"]) {
+  border-color: #b91c1c;
+  background-color: #b91c1c;
+  color: #ffffff;
+}
+
+.panel :global([role="progressbar"] > span[data-state="upcoming"]) {
+  border-color: #bfdbfe;
+  background-color: #eff6ff;
+  color: #1e3a8a;
+}
+
+.panel :global(section) {
+  margin: 0;
+}
+
+.panel :global(header) {
+  margin-bottom: 28px;
+}
+
+.panel :global(header p) {
+  margin: 0 0 12px;
+  color: #2563eb;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.panel :global(h2) {
+  margin: 0;
+  color: #071731;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.panel :global(fieldset) {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+}
+
+.panel :global(legend) {
+  margin-bottom: 12px;
+  color: #334155;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.panel :global(label) {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #071731;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.panel :global(label:hover) {
+  border-color: #2563eb;
+  background: #f8fbff;
+}
+
+.panel :global(label:has(input:checked)) {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #071731;
+}
+
+.panel :global(input[type="radio"]) {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 0;
+  accent-color: #2563eb;
+}
+
+.panel :global(input[type="radio"]:focus-visible) {
+  outline: 3px solid #7c3aed;
+  outline-offset: 3px;
+}
+
+.panel > :global(button) {
+  min-width: 132px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.panel > :global(button:hover:not(:disabled)) {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+}
+
+.panel > :global(button:focus-visible) {
+  outline: 3px solid #7c3aed;
+  outline-offset: 3px;
+}
+
+.panel > :global(button:disabled) {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.results p {
+  margin: 0;
+  color: #071731;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 24px 14px;
+  }
+
+  .panel {
+    padding: 26px 20px;
+  }
+
+  .panel :global(h2) {
+    font-size: 1.65rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel :global([role="progressbar"] > span),
+  .panel :global(label),
+  .panel > :global(button) {
+    transition: none;
+  }
+}
